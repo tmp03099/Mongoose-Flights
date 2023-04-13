@@ -1,5 +1,12 @@
 const mongoose = require("mongoose");
 
+const currentDate = new Date();
+const oneYearFromNow = new Date(
+  currentDate.getFullYear() + 1,
+  currentDate.getMonth(),
+  currentDate.getDate()
+);
+
 //* create Schema
 const flightSchema = new mongoose.Schema({
   airline: {
@@ -14,7 +21,7 @@ const flightSchema = new mongoose.Schema({
   },
   departs: {
     type: Date,
-    default: "04/13/2024 04:00 PM",
+    default: oneYearFromNow,
   },
 });
 

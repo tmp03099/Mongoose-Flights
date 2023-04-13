@@ -3,13 +3,17 @@ function Index({ flights }) {
   return (
     <div>
       <h1>List of all Flights</h1>
-      {flights.map((flight, idx) => {
-        return (
-          <div>
-            {flight.airLine} {flight.flightNo} {flight.departs}
-          </div>
-        );
-      })}
+      <div>
+        {flights.map((flight, i) => {
+          return (
+            <p key={i}>
+              AirLine: {flight.airline} <br />
+              Flight Number: {flight.flightNo} <br />
+              Departs: {flight.departs.toLocaleString()}
+            </p>
+          );
+        })}
+      </div>
     </div>
   );
 }

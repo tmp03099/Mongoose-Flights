@@ -28,19 +28,37 @@ app.get("/", (req, res) => {
   res.send("<h1>Flight Inforamtion</h1>");
 });
 
+//* Find all flights in db
 app.get("/flights", (req, res) => {
   Flight.find()
     .then((flights) => {
       console.log(flights);
       res.render("flights/Index", { flights: flights });
+      //   res.send(flights);
     })
     .catch((error) => {
       console.log(error);
     });
 });
 
+//* Get the form
 app.get("/flights/new", (req, res) => {
   res.render("flights/New");
+});
+
+//* Create a single Flight
+app.post("/flights", (req, res) => {
+  Flight.create(req.body)
+    .then((flight) => {
+      console.log(flight);
+      res.redirect("/flights");
+    })
+    .catch((error) => {
+      console.error(error);
+    })
+    .finally(() => {
+      console.log("This runs if the promise is completed or rejected");
+    });
 });
 
 //app listening
