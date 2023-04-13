@@ -2,6 +2,7 @@
 require("dotenv").config();
 const express = require("express");
 const connectToDB = require("./config/db");
+const Flight = require("./models/Flight");
 
 //create app
 const app = express();
