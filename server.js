@@ -39,6 +39,10 @@ app.get("/flights", (req, res) => {
     });
 });
 
+app.get("/flights/new", (req, res) => {
+  res.render("flights/New");
+});
+
 //app listening
 app.listen(port, () => {
   console.log(`Server is running on ${port}`);

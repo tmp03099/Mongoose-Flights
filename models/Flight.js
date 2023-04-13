@@ -14,7 +14,7 @@ const flightSchema = new mongoose.Schema({
   },
   departs: {
     type: Date,
-    default: "04/13/2024",
+    default: "04/13/2024 04:00 PM",
   },
 });
 
