@@ -51,6 +51,19 @@ app.get("/flights/new", (req, res) => {
   res.render("flights/new", { departsDate });
 });
 
+//* Sort the date in ascending order
+app.get("/flights/sort", (req, res) => {
+  Flight.find({})
+    .sort({ date: -1 })
+    .exec()
+    .then((flights) => {
+      res.send(flights);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
+
 //* Create a single Flight
 app.post("/flights", (req, res) => {
   Flight.create(req.body)
